@@ -18,19 +18,6 @@ class BankAccount:
         else:
             self.balance += amount
             print("You have deposited {} to {}".format(amount, self.account_name()))
-
-    def withdraw(self, amount):
-        if amount <= 0:
-            print("You cannot withdraw zero or negative")
-        elif amount > self.balance:
-            print("You don't have enough balance")
-        else:
-            self.balance -= amount
-            print("You have withdrawn {} from {}".format(amount, self.account_name()))
-
-
-    def get_balance(self):
-        return "The balance for {} is {}".format(self.account_name(), self.balance)
     
     def give_loan(self,loan):
         if loan <=0:
@@ -39,13 +26,47 @@ class BankAccount:
             self.balance += loan
             print("You have requested  {} ".format(loan))
 
-      
-    def withdrawal_statement(self):
-        withdrawal=withdrawal.append(withdraw())
-        return withdraw
+    def deposit (self, amount):
+        if amount <=0:
+            print("You can not deposit zero or negative")
+        else:
+            self.balance +=amount
+            self.deposits.append(amount)
+            print("You have deposited {}".format(amount,self.account_name()))
 
-    def loan_repay(self,amount):
-        if amount >=1:
-            self.repay=self.loans-amount
-            print("You have repayed Ugsh {}".format(amount))
-            print("Your loan balance is: {}".format(self.repay))
+    def withdrawal(self,amount):
+        if withdrawal<=0:
+            print("You can not withdraw zero or negative")
+        elif amount > self.balance:
+            print("You dont have enough balance")
+        else:
+            self.balance=amount
+            self.withdrawal.append(amount)
+            print("You have withdrawn {} from {}".format(amount,self.account_name()))
+    
+    def get__balance(self):
+        return("The balance for {}".format(self.account_name(), self.balance))
+
+    def show_deposit_statement(self):
+        for deposits in self.deposits:
+            print(deposit)
+
+    def request_loan(self, amount):
+            if amount<=0:
+                print("You can not requesta loan at this moment")
+            else:
+                self.loan=amount
+                print("You have been given a loan of {}".format(amount))
+
+    def repay_loan(self,amount):
+        if amount <=0:
+            print("You cannot repay with that amount")
+        elif self.loan==0:
+            print("You dont have a loan at this moment")
+        elif amount=self.loan:
+            print("Your loan is {}. Please an amount less or equal".format(self.loan))
+        else:
+            self.loan==amount
+            print("You haverepaid yourloan with {}. Your loan balanceis {}".format(amount,self.loan))
+
+           
