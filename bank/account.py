@@ -55,11 +55,19 @@ class BankAccount:
 
     def show_deposit_statements(self):
         for deposit in self.deposits:
+            time=deposit['time']
             formated_time = time.strftime("%A, %drd %B %Y, %H:%M %p")
-            print("{} deposited on {}".format(deposit, formated_time))
+            amount=deposit['amount']
+            statement="You deposited {} on {}".format(amount, formatted_time)
+            print(statement)
+
 
     def show_withdrawals_statement(self):
         for withdraw in  self.withdrawals:
+            time=withdrawal['time']
+            formatted_time=self.get_formatted_time(time)
+            amount=withdrawal['amount']
+            statement="You withdrew {} on {} ".fomat(amount,formatted_time)
             print(withdraw)
 
     def request_loan(self, amount):
@@ -77,7 +85,7 @@ class BankAccount:
 
     def repay_loan(self, amount):
         try:
-            amount + 1
+            amount + 10
         except TypeError:
             print("You must enter the amount in figures")
             return
@@ -90,6 +98,12 @@ class BankAccount:
             print("Your loan is {} please enter an amount that is less or equal".format(self.loan))
         else:
             self.loan -= amount
+            time=datetime.now()
+            repayment={
+                "time":time,
+                "amount":amount
+            }
+            self.loan_repayment.append
             print("You have repaid your loan with {} your balance is {}".format(amount, self.loan))
 
 
